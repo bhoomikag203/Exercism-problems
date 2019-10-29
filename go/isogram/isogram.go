@@ -6,18 +6,17 @@ import (
 
 //IsIsogram checks if the input is isogram
 func IsIsogram(s string) bool {
-	str := []rune(strings.ToLower(s))
-	letterCountMap := map[rune]int{}
+	str := strings.ToLower(s)
+	seen := map[rune]bool{}
 
-	for _, key := range str {
-		if key == '-' || key == ' ' {
+	for _, r := range str {
+		if r == '-' || r == ' ' {
 			continue
 		}
-
-		letterCountMap[key]++
-		if letterCountMap[key] > 1 {
+		if seen[r] {
 			return false
 		}
+		seen[r] = true
 	}
 	return true
 }
