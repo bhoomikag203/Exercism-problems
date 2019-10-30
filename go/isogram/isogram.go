@@ -1,18 +1,18 @@
 package isogram
 
 import (
-	"strings"
+	"unicode"
 )
 
 //IsIsogram checks if the input is isogram
 func IsIsogram(s string) bool {
-	str := strings.ToLower(s)
 	seen := map[rune]bool{}
 
-	for _, r := range str {
+	for _, r := range s {
 		if r == '-' || r == ' ' {
 			continue
 		}
+		r = unicode.ToLower(r)
 		if seen[r] {
 			return false
 		}
