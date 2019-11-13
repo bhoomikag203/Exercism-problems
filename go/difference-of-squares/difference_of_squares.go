@@ -1,21 +1,19 @@
 package diffsquares
 
-func SquareOfSum(n int)int{
-    sum := 0
-    for i := 1 ; i <= n; i++ {
-    sum += i
-    }
+//SquareOfSum calculates the square of the sum of the n numbers
+func SquareOfSum(n int) int {
+    sum := (n) * (n + 1) / 2
     return sum * sum
 }
 
-func SumOfSquares(n int)int{
-    sumOfSq := 0
-    for i := 1; i <= n; i++{
-        sumOfSq += i * i
-    }
+//SumOfSquares calculates the sum of squares of n numbers
+func SumOfSquares(n int) int {
+    sumOfSq := n * (n + 1) * (2*n + 1) / 6
+
     return sumOfSq
 }
 
-func Difference(n int )int{
-    return SquareOfSum(n)-SumOfSquares(n)
+//Difference calculates the difference between square of sum and sum of squares
+func Difference(n int) int {
+    return SquareOfSum(n) - SumOfSquares(n)
 }
