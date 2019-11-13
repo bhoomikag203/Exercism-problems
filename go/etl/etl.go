@@ -6,13 +6,10 @@ import (
 
 //Transform ..
 func Transform(input map[int][]string) map[string]int {
-	var c = []string{}
 	output := make(map[string]int)
-	for k := range input {
-		c = input[k]
-		for i := range c {
-			c[i] = strings.ToLower(c[i])
-			output[c[i]] = k
+	for score, letters := range input {
+		for _, letter := range letters {
+			output[strings.ToLower(letter)] = score
 		}
 	}
 	return output
